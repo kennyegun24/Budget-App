@@ -1,0 +1,17 @@
+<%= form_with model: @group, url: groups_path do |form| %>
+    <h1 >Add A New Group</h1>
+    <div class='form'>
+      <%= form.label :name %><br>
+      <%= form.text_field :name, class:'formInp' %>
+    </div>
+
+    <div class='form'>
+      <%= form.label :icon %><br>
+      <%= form.text_field :icon, class:'formInp' %>
+    </div>
+
+    <%= form.submit "Click to Add Group", class:'addFood' %>
+  </div>
+
+  <%= link_to 'Back', root_path %>
+<% end %>

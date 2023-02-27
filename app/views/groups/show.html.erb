@@ -1,0 +1,9 @@
+<div>
+    <%= @total %>
+    <% @group_entity.each do |group| %>
+        <%= group.entity.name %>
+        <%= group.entity.amount %>
+    <% end %>
+
+    <%= link_to 'Add new transaction', new_group_entity_path(@group) %>
+</div>
