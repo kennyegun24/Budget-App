@@ -1,0 +1,21 @@
+<%= form_with model: @entity, url: group_entities_path do |form| %>
+    <h1 >Add A New Transaction</h1>
+    <div class='form'>
+      <%= form.label :name %><br>
+      <%= form.text_field :name, class:'formInp' %>
+    </div>
+
+    <div class='form'>
+      <%= form.label :amount %><br>
+      <%= form.number_field :amount, class:'formInp' %>
+    </div>
+
+    <div class='form'>
+      <%= form.label :group %><br>
+      <%= select_tag :group, options_for_select(@group_array.map {|sel| [sel.name, sel.id]}), class:'formInp' %>
+    </div>
+
+    <%= form.submit "Click to Add Transaction", class:'addFood' %>
+  </div>
+  <%= link_to 'Back', group_path(@group.id) %>
+<% end %>
