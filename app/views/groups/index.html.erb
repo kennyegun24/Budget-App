@@ -1,0 +1,15 @@
+<h1>hey</h1>
+<%= @user.name %>
+<% @total = 0 %>
+<% @groups.includes(:entity_groups).each do |group| %>
+    <p><%= link_to "#{group.name}", group_path(group.id) %></p>
+    <p><%= group.icon %></p>
+    <% group.entity_groups.includes(:entity).each do |deal| %>
+        <% @total += deal.entity.amount %>
+    <% end %>
+    <%= @total.floor %>
+
+<% end %>
+<div>
+<%= link_to "New groups", new_group_path %>
+</div>
