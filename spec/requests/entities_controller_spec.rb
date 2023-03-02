@@ -4,7 +4,6 @@ RSpec.describe EntitiesController, type: :request do
   include Devise::Test::IntegrationHelpers
   let(:user) { User.create(id: 1, name: 'Kenny', email: 'Kennyegun240@gmail.com', password: '12345678') }
 
-
   describe 'GET /index' do
     context 'when page is opened ' do
       before :each do
