@@ -26,7 +26,7 @@ RSpec.describe User, type: :model do
     @entity_group.entity.amount = nil
     expect(@entity).to_not be_valid
   end
-  
+
   it 'Check if postscounter is an integer' do
     @entity_group.group.icon = '2hrs'
     expect(@group).to be_valid
@@ -41,5 +41,4 @@ RSpec.describe User, type: :model do
     @entity_group.group.name = nil
     expect(@group).to_not be_valid
   end
-
 end

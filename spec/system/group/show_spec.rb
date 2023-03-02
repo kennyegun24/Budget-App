@@ -1,14 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe 'Posts index view', type: :system do
-    include Devise::Test::IntegrationHelpers
+  include Devise::Test::IntegrationHelpers
   let(:user) { User.create(id: 1, name: 'Kenny', email: 'Kennyegun240@gmail.com', password: '12345678') }
   describe 'Index page' do
     before(:each) do
-        sign_in user
-    #   Photo: 'https://img.freepik.com/free-psd/save-world-reusable-grocery-bag-mockup_53876-98827.jpg?'
-      @group = Group.create(id: 1, user: user, name: 'Business', icon: 'https://img.freepik.com/free-psd/save-world-reusable-grocery-bag-mockup_53876-98827.jpg?')
-      @entity = Entity.create(id: 1, user: user, amount: 13, name: 'Random')
+      sign_in user
+      #   Photo: 'https://img.freepik.com/free-psd/save-world-reusable-grocery-bag-mockup_53876-98827.jpg?'
+      @group = Group.create(id: 1, user:, name: 'Business', icon: 'https://img.freepik.com/free-psd/save-world-reusable-grocery-bag-mockup_53876-98827.jpg?')
+      @entity = Entity.create(id: 1, user:, amount: 13, name: 'Random')
       @entity_group = EntityGroup.create(id: 1, entity: @entity, group: @group)
       @total = 0
       visit group_path(@group.id)

@@ -28,6 +28,6 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     @group_entity = EntityGroup.includes(:entity).where(group: @group).order(created_at: :desc)
     @total = 0
-    @group_entity.each {|amount| @total += amount.entity.amount}
+    @group_entity.each { |amount| @total += amount.entity.amount }
   end
 end
