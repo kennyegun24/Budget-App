@@ -4,12 +4,11 @@
         <%= button_to 'Logout', destroy_user_session_path, class:'logout', method: :delete %>
     </div>
 
-    <% @total = 0 %>
     <div class='containe'>
     <% if @groups.empty? %>
     <p class='center'> No transaction </p>
     <% else %>
-    <% @groups.includes(:entity_groups).each do |group| %>
+    <% @groups.each do |group| %>
         <div class='border'>                    
                     <div class='flex'>
 
@@ -27,8 +26,9 @@
                         </div>
 
                         <div>
+                            <% @total = 0 %>
                             <% group.entity_groups.includes(:entity).each do |deal| %>
-                                <% @total += deal.entity.amount %>
+                            <% @total += deal.entity.amount %>
                             <% end %>
                             <p> Total: <%= "$#{number_with_delimiter(@total, :delimiter => ',')}" %></p>
                         </div>
