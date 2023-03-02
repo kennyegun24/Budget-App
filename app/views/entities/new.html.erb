@@ -1,21 +1,28 @@
-<%= form_with model: @entity, url: group_entities_path do |form| %>
-    <h1 >Add A New Transaction</h1>
-    <div class='form'>
-      <%= form.label :name %><br>
-      <%= form.text_field :name, class:'formInp' %>
-    </div>
-
-    <div class='form'>
-      <%= form.label :amount %><br>
-      <%= form.number_field :amount, class:'formInp' %>
-    </div>
-
-    <div class='form'>
-      <%= form.label :group %><br>
-      <%= select_tag :group, options_for_select(@group_array.map {|sel| [sel.name, sel.id]}), class:'formInp' %>
-    </div>
-
-    <%= form.submit "Click to Add Transaction", class:'addFood' %>
+<div class='container'>
+  <div class='blue'>
+    <h2 class='head'>Add a new Transaction</h2>
   </div>
-  <%= link_to 'Back', group_path(@group.id) %>
+
+<%= form_with model: @entity, url: group_entities_path do |form| %>
+  <div class='formDiv'>
+  <div class='formInput'>
+      <%= form.label :name %><br>
+      <%= form.text_field :name, class:'fieldInput' %>
+    </div>
+
+    <div class='formInput'>
+      <%= form.label :amount %><br>
+      <%= form.number_field :amount, class:'fieldInput' %>
+    </div>
+
+    <div class='formInput'>
+      <%= form.label :group %><br>
+      <%= select_tag :group, options_for_select(@group_array.map {|sel| [sel.name, sel.id]}), class:'fieldInput' %>
+    </div>
+
+    <%= form.submit "Click to Add Transaction", class:'button' %>
+  </div>
+  <%= link_to 'Back', group_path(@group.id), class:'button' %>
+  </div>
 <% end %>
+</div>

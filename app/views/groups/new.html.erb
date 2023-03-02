@@ -1,17 +1,22 @@
-<%= form_with model: @group, url: groups_path do |form| %>
-    <h1 >Add A New Group</h1>
-    <div class='form'>
-      <%= form.label :name %><br>
-      <%= form.text_field :name, class:'formInp' %>
-    </div>
-
-    <div class='form'>
-      <%= form.label :icon %><br>
-      <%= form.text_field :icon, class:'formInp' %>
-    </div>
-
-    <%= form.submit "Click to Add Group", class:'addFood' %>
+<div class='container'>
+  <div class='blue'>
+    <h2 class='head'>Add a new Group</h2>
   </div>
 
-  <%= link_to 'Back', root_path %>
-<% end %>
+  <%= form_with model: @group, url: groups_path do |form| %>
+    <div class='formDiv'>
+
+      <div class='field'>
+        <%= form.text_field :name, placeholder: 'Name', class:'fieldInput' %>
+      </div>
+
+      <div class='field'>
+        <%= form.text_field :icon, placeholder: 'Name', class:'fieldInput', disabled: true %>
+      </div>
+
+      <%= form.submit "Click to Add Group", class:'button' %>
+    </div>
+
+    <%= link_to 'Back', root_path, class:'button' %>
+  <% end %>
+</div>

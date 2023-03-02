@@ -1,15 +1,46 @@
-<h1>hey</h1>
-<%= @user.name %>
-<% @total = 0 %>
-<% @groups.includes(:entity_groups).each do |group| %>
-    <p><%= link_to "#{group.name}", group_path(group.id) %></p>
-    <p><%= image_tag group.icon %></p>
-    <% group.entity_groups.includes(:entity).each do |deal| %>
-        <% @total += deal.entity.amount %>
-    <% end %>
-    <%= @total.floor %>
+<div class='container2'>
+    <div class='blue fixed flex'>
+        <h3>Welcome back <%= @user.name.upcase %></h3>
+        <%= button_to 'Logout', destroy_user_session_path, class:'logout', method: :delete %>
+    </div>
 
-<% end %>
-<div>
-<%= link_to "New groups", new_group_path %>
+    <% @total = 0 %>
+    <div class='containe'>
+    <% if @groups.empty? %>
+    <p class='center'> No transaction </p>
+    <% else %>
+    <% @groups.includes(:entity_groups).each do |group| %>
+        <div class='border'>                    
+                    <div class='flex'>
+
+                        <div class='flex2'>
+                            <div>
+                                <%= image_tag group.icon, class:'icon' %>
+                            </div>
+
+                            <div class='flxCl'>
+                                <p><%= link_to "#{group.name}", group_path(group.id), class: 'bold' %></p>
+                                <% date = group.created_at %>
+                                <% newdate = date.strftime("%b %d, %Y") %>
+                                <p><%= newdate %></p>
+                            </div> 
+                        </div>
+
+                        <div>
+                            <% group.entity_groups.includes(:entity).each do |deal| %>
+                                <% @total += deal.entity.amount %>
+                            <% end %>
+                            <p> Total: <%= "$#{number_with_delimiter(@total, :delimiter => ',')}" %></p>
+                        </div>
+
+                    </div>
+
+            </div>
+
+    <% end %>
+    <% end %>
+
 </div>
+<%= link_to "New groups", new_group_path, class:'fix' %>
+
+<div>
