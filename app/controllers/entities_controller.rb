@@ -16,9 +16,9 @@ class EntitiesController < ApplicationController
       @group_entity = EntityGroup.create(entity: @entity, group_id: params[:group])
       flash[:notice] = 'Group successfully created!'
       redirect_to group_path(id: params[:group_id])
-      else
-        flash.now[:error] = 'Error: Error occurred when creating post'
-        render :new
+    else
+      flash.now[:error] = 'Error: Error occurred when creating post'
+      render :new
     end
   end
 
