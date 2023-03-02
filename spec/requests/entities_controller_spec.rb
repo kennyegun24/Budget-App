@@ -7,10 +7,10 @@ RSpec.describe EntitiesController, type: :request do
 
   describe 'GET /index' do
     context 'when page is opened ' do
-        before :each do
-            sign_in user
-            @group = Group.create(id: 1, user: user, name: 'Business', icon: 'https://google.com')
-        end
+      before :each do
+        sign_in user
+        @group = Group.create(id: 1, user:, name: 'Business', icon: 'https://google.com')
+      end
       it 'return a correct response' do
         # @user = User.new(id: 1, name: 'kenny')
 
