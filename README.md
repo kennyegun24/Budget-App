@@ -160,7 +160,7 @@ Example command:
 
 ### Run tests
 
-To run tests, run the following command: `rspec`
+To run tests, run the following command: Bundle exec rspec ./spec
 
 <!--
 Example command: `rspec`
