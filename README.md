@@ -96,9 +96,9 @@ After you're finished please remove all the comments and instructions!
 
 <!-- LIVE DEMO -->
 
-## 🚀 Live Demo <a name="live-demo" href='https://budget-app-r9pr.onrender.com'></a>
+## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://yourdeployedapplicationlink.com)
+- [Live Demo Link](https://budget-app-r9pr.onrender.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -148,7 +148,7 @@ Example command:
 
 ### Usage
 
-To run the project, execute the following command: rails serrver or rails s
+To run the project, execute the following command: `rails serrver or rails s`
 
 <!--
 Example command:
@@ -163,7 +163,7 @@ Example command:
 To run tests, run the following command:
 
 <!--
-Example command:
+Example command: `rspec`
 
 ```sh
   bin/rails test test/models/article_test.rb
@@ -172,7 +172,7 @@ Example command:
 
 ### Deployment
 
-You can deploy this project using:
+You can deploy this project using: render
 
 <!--
 Example:
@@ -253,7 +253,5 @@ I would like to thank...
 ## 📝 License <a name="license"></a>
 
 This project is [MIT](./LICENSE) licensed.
-
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
