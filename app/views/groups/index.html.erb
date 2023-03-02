@@ -1,0 +1,46 @@
+<div class='container2'>
+    <div class='blue fixed flex'>
+        <h3>Welcome back <%= @user.name.upcase %></h3>
+        <%= button_to 'Logout', destroy_user_session_path, class:'logout', method: :delete %>
+    </div>
+
+    <div class='containe'>
+    <% if @groups.empty? %>
+    <p class='center'> No transaction </p>
+    <% else %>
+    <% @groups.each do |group| %>
+        <div class='border'>                    
+                    <div class='flex'>
+
+                        <div class='flex2'>
+                            <div>
+                                <%= image_tag group.icon, class:'icon' %>
+                            </div>
+
+                            <div class='flxCl'>
+                                <p><%= link_to "#{group.name}", group_path(group.id), class: 'bold' %></p>
+                                <% date = group.created_at %>
+                                <% newdate = date.strftime("%b %d, %Y") %>
+                                <p><%= newdate %></p>
+                            </div> 
+                        </div>
+
+                        <div>
+                            <% @total = 0 %>
+                            <% group.entity_groups.includes(:entity).each do |deal| %>
+                            <% @total += deal.entity.amount %>
+                            <% end %>
+                            <p> Total: <%= "$#{number_with_delimiter(@total, :delimiter => ',')}" %></p>
+                        </div>
+
+                    </div>
+
+            </div>
+
+    <% end %>
+    <% end %>
+
+</div>
+<%= link_to "New groups", new_group_path, class:'fix' %>
+
+<div>

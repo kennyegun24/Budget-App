@@ -1,0 +1,28 @@
+<div class='container'>
+  <div class='blue'>
+    <h2 class='head'>Add a new Transaction</h2>
+  </div>
+
+<%= form_with model: @entity, url: group_entities_path do |form| %>
+  <div class='formDiv'>
+  <div class='formInput'>
+      <%= form.label :name %><br>
+      <%= form.text_field :name, class:'fieldInput' %>
+    </div>
+
+    <div class='formInput'>
+      <%= form.label :amount %><br>
+      <%= form.number_field :amount, class:'fieldInput' %>
+    </div>
+
+    <div class='formInput'>
+      <%= form.label :group %><br>
+      <%= select_tag :group, options_for_select(@group_array.map {|sel| [sel.name, sel.id]}), class:'fieldInput' %>
+    </div>
+
+    <%= form.submit "Click to Add Transaction", class:'button' %>
+  </div>
+  <%= link_to 'Back', group_path(@group.id), class:'button' %>
+  </div>
+<% end %>
+</div>

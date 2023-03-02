@@ -1,0 +1,33 @@
+<div class='container'>
+<div class='blue'>
+<h2 class='head'>Register</h2>
+</div>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class='formDiv'>
+  <div class="field">
+    <%= f.email_field :email, placeholder: 'Email', autofocus: true, autocomplete: "email", class:'fieldInput' %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :name, placeholder: 'Name', autofocus: true, autocomplete: "email", class:'fieldInput' %>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password, placeholder: 'Password (Min 6)', autocomplete: "new-password", class:'fieldInput' %>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password_confirmation, placeholder: 'Confirm Password', autocomplete: "new-password", class:'fieldInput' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up", class:'button' %>
+  </div>
+<%= render "devise/shared/links" %>
+</div>
+<% end %>
+
+</div>

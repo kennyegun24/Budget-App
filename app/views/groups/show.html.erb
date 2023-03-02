@@ -1,0 +1,31 @@
+<div class='container2'>
+    <div class='blue fixed flex'>
+        <h3>Transactions</h3>
+        <%= button_to 'Logout', destroy_user_session_path, class:'logout', method: :delete %>
+    </div>    
+    <%= @total %>
+    <div class='containe'>
+
+    <% if @group_entity.empty? %>
+    <p class='center'> No transaction </p>
+    <% else %>
+
+    <% @group_entity.each do |group| %>
+        <div class='border'>                    
+            <div class='flex'>
+                <div>
+                    <p> Name: <%= group.entity.name %></p>
+                </div>
+
+                <div>
+                    <p><%= "$#{number_with_delimiter(group.entity.amount, :delimiter => ',')}" %></p>
+                </div>
+            </div>
+        </div>
+    <% end %>
+    <% end %>
+
+    <%= button_to 'Back', root_path, class:'button', method: :get %>
+</div>
+    <%= link_to 'Add new transaction', new_group_entity_path(@group), class:'fix' %>
+</div>

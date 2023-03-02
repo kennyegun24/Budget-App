@@ -1,0 +1,22 @@
+<div class='container'>
+  <div class='blue'>
+    <h2 class='head'>Add a new Group</h2>
+  </div>
+
+  <%= form_with model: @group, url: groups_path do |form| %>
+    <div class='formDiv'>
+
+      <div class='field'>
+        <%= form.text_field :name, placeholder: 'Name', class:'fieldInput' %>
+      </div>
+
+      <div class='field'>
+        <%= form.text_field :icon, placeholder: 'Name', class:'fieldInput', disabled: true %>
+      </div>
+
+      <%= form.submit "Click to Add Group", class:'button' %>
+    </div>
+
+    <%= link_to 'Back', root_path, class:'button' %>
+  <% end %>
+</div>
